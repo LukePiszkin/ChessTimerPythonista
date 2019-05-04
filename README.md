@@ -1,0 +1,2 @@
+# ChessTimerPythonista
+Chess timer app for Pythonista. People at my school that play chess have been complaining about the lack of good chess timer apps, so I thought I would make one with the functionality that they want. Functionality: common timesets like on chess.com and lichess. Custom time settings, with increments. Noise when you press the timer to signify that you pressed it. Notification that your flag falls. Btw flag falls means that you time runs out. 
