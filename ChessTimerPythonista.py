@@ -1,15 +1,24 @@
 import ui, time
 
-view_main = ui.load_view()
-lbl = view_main["lbl_time"]
-view_main.present("sheet")
-time = 4
-#the action is this because it takes a function, what this does is calls it with a delay. 
-view_main["btn_start"].action = lambda sender: ui.delay(decrement, 1)
-#This is still here because ui.delay takes a function. 
-def decrement():
-    global time
-    if time > 0:
-        time -= 1
-        lbl.text = str(time)
-        ui.delay(decrement, 1)
+view = ui.View()
+view.size_to_fit()
+view.background_color = 'white'
+view.flex = 'WH'
+
+player1button = ui.Button()
+player1button.title = time1
+player1button.action  = tap 
+
+def tap(sender):
+    pass
+
+def timer1(sender):
+    if time1 < 0:
+        time1 -= 1
+        player1button.title = time1
+        ui.delay(timer1, 1)
+
+
+view.add_subview(player1button)
+view.present()
+
