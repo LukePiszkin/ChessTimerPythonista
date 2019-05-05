@@ -1,20 +1,15 @@
 import ui, time
 
-class Main(ui.view):
-    def.decrement(self): 
-        if self.time > 0
-        self.time -= 1
-        self.lbl.text = str(self.time)
-        ui.delay(self.decrement, 1)
-
-    self.view_main  = ui.load_view()
-    self.lbl = self.view_main("time1")
-    self.view_main.present("sheet")
-    self.time = 5
-    self.view_main["btn_start"].action = self.change_label_time  
-
-
-  def change_label_time(self, sender):
-        ui.delay(self.decrement, 1)
-
-Main()
+view_main = ui.load_view()
+lbl = view_main["lbl_time"]
+view_main.present("sheet")
+time = 4
+#the action is this because it takes a function, what this does is calls it with a delay. 
+view_main["btn_start"].action = lambda sender: ui.delay(decrement, 1)
+#This is still here because ui.delay takes a function. 
+def decrement():
+    global time
+    if time > 0:
+        time -= 1
+        lbl.text = str(time)
+        ui.delay(decrement, 1)
