@@ -26,6 +26,15 @@ player2button.border_width = 5
 player2button.frame = (90,530,200,75)
 player2button.title = str(time1) + ':' + str(time2) + str(time3)
 
+def player1tap(sender):
+    tap1 == True 
+    tap2 == False
+
+def player2tap(sender):
+    tap1 == False 
+    tap2 == True
+
+
 @ui.in_background
 def timer1(sender):
     global time1
@@ -33,8 +42,7 @@ def timer1(sender):
     global time3
     global tap1
     global tap2
-    tap1 == False 
-    tap2 == True
+
     if tap1 == False:
         if time6 == 0 & (time5 > 0 | time4 > 0):
             time6  = 9
@@ -49,7 +57,7 @@ def timer1(sender):
             player1button.title = str(time4) + ':' + str(time5) + str(time6)
             timer2(sender)
         if time4 == time5 == time6 == 0:
-            notification.schedule('Flag Down! Player 1 Wins!')
+            notification.schedule('Flag Down! Player 2 Wins!')
             view.remove_subview(player1button)
             view.remove_subview(player2button)
 
@@ -60,8 +68,7 @@ def timer2(sender):
     global time6
     global tap1
     global tap2
-    tap1 == True 
-    tap2 == False
+   
     if tap2 == False:
         if time6 == 0 & (time5 > 0 | time4 > 0):
             time6  = 9
@@ -81,7 +88,9 @@ def timer2(sender):
             view.remove_subview(player2button)
         
 player1button.action = timer2
+player1button.action = player1tap
 player2button.action = timer1
+player2button.action = player2tap
 
 view.add_subview(quitbutton)
 view.add_subview(player1button)
